@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/19 21:17:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/20 16:56:19 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,18 @@ t_stack	*stack_reserve(int sz)
 t_stack	*stack_init(int sz, char **raw)
 {
 	t_stack	*stck;
+	int		i;
 
 	stck = stack_reserve(sz);
 	if (!stck)
 		return (0);
-	sz = 0;
-	while (sz <= stck->sz)
+	i = 0;
+	while (i < sz)
 	{
-		stck->content[sz] = ft_atoi(raw[sz]);
-		sz--;
+		stck->content[i] = ft_atoi(raw[i]);
+		i++;
 	}
-	stck->len = sz;
+	stck->len = i;
 	return (stck);
 }
 
@@ -51,6 +52,7 @@ int	main(int argc, char const *argv[])
 
 	a = stack_init(argc - 1, (char **)&argv[1]);
 	b = stack_reserve(argc - 1);
+	stackop_push(&a, &b);
 	osgc_clear();
 	return (0);
 }

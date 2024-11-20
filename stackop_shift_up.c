@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackop_swap.c                                     :+:      :+:    :+:   */
+/*   stackop_shift_up.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 20:52:35 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/19 20:56:46 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/19 21:14:37 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/20 13:13:15 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "stackop.h"
+#include "push_swap.h"
 
-void	*stackop_swap(t_stack *stack)
+void	*stackop_shift_up(t_stack *stack)
 {
+	int	i;
 	int	tmp;
 
-	if (!stack)
-		return (0);
-	if (!stack->sz)
-		return (stack);
+	i = 1;
 	tmp = stack->content[0];
-	stack->content[0] = stack->content[1];
-	stack->content[1] = tmp;
+	while (i <= stack->len)
+	{
+		stack->content[i] = stack->content[i - 1];
+		i++;
+	}
+	stack->content[i] = tmp;
 	return (stack);
 }
