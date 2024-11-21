@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 16:56:19 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:27:15 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,21 @@ t_stack	*stack_init(int sz, char **raw)
 	return (stck);
 }
 
+void	stack_print(t_stack *stack, char const *name)
+{
+	unsigned long	i;
+
+	printf("STACK [%s] INFO:\n", name);
+	printf("%-10s > %lu\n", "n_elems", stack->len);
+	printf("%-10s > %lu\n", "total_sz", stack->sz);
+	printf("STACK [%s] CONTENT:\n", name);
+	i = -1;
+	if(stack->len == 0)
+		printf("%s\n", "NO CONTENT");
+	while (++i < stack->len)
+		printf("%-10s [%lu] = %d\n", "", i, stack->content[i]);
+}
+
 int	main(int argc, char const *argv[])
 {
 	t_stack	*a;
@@ -52,7 +67,13 @@ int	main(int argc, char const *argv[])
 
 	a = stack_init(argc - 1, (char **)&argv[1]);
 	b = stack_reserve(argc - 1);
-	stackop_push(&a, &b);
+	// stackop_push(&a, &b);
+	stack_print(a, "a");
+	stackop_shift_down(a);
+	stack_print(a, "a");
+	stackop_shift_up(a);
+	stackop_shift_up(a);
+	stack_print(a, "a");
 	osgc_clear();
 	return (0);
 }

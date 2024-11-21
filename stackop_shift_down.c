@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:14:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 13:13:15 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:25:43 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,16 @@ void	*stackop_shift_down(t_stack *stack)
 {
 	int	i;
 	int	tmp;
+	int j;
 
-	tmp = stack->content[stack->len];
-	i = stack->len - 1;
-	while (i >= 0)
+	tmp = stack->content[stack->len - 1];
+	i = stack->len;
+	while (i)
 	{
-		stack->content[i] = stack->content[i + 1];
+		printf("[%d] %d\n", i, stack->content[i]);
+		ft_swap(&stack->content[i], &stack->content[i - 1]);
 		i--;
 	}
-	stack->content[i] = tmp;
+	stack->content[0] = tmp;
 	return (stack);
 }

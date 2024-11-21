@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/20 16:56:32 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/21 20:13:44 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ struct					s_stack
 
 typedef struct s_stack	t_stack;
 
+void					ft_swap(int *a, int *b);
 int						ft_atoi(char const *nptr);
 void					*stackop_swap(t_stack *stack);
 void					*stackop_shift_up(t_stack *stack);
