@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:14:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/21 20:26:52 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/22 07:45:00 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*stackop_shift_up(t_stack *stack)
 {
-	int	i;
-	int	tmp;
+	unsigned long	i;
+	int				tmp;
 
 	i = 0;
 	tmp = stack->content[0];

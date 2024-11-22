@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackop_shift_down.c                               :+:      :+:    :+:   */
+/*   stack_init.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 21:14:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 09:47:22 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/22 07:48:47 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/22 08:24:37 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*stackop_shift_down(t_stack *stack)
+t_stack	*stack_init(int sz, char **raw)
 {
-	unsigned long	i;
-	int				tmp;
+	t_stack	*stack;
+	int		i;
 
-	tmp = stack->content[stack->len - 1];
-	i = stack->len;
-	while (i)
+	stack = stack_reserve(sz);
+	if (!stack)
+		return (0);
+	i = 0;
+	while (i < sz)
 	{
-		ft_swap(&stack->content[i], &stack->content[i - 1]);
-		i--;
+		stack->content[i] = ft_atoi(raw[i]);
+		i++;
 	}
-	stack->content[0] = tmp;
+	stack->len = i;
 	return (stack);
 }

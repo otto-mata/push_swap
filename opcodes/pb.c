@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stackop_shift_down.c                               :+:      :+:    :+:   */
+/*   pb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 21:14:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 09:47:22 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/22 08:35:15 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/22 08:44:25 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void	*stackop_shift_down(t_stack *stack)
+int	pb(void)
 {
-	unsigned long	i;
-	int				tmp;
+	t_core	*core;
 
-	tmp = stack->content[stack->len - 1];
-	i = stack->len;
-	while (i)
-	{
-		ft_swap(&stack->content[i], &stack->content[i - 1]);
-		i--;
-	}
-	stack->content[0] = tmp;
-	return (stack);
+	core = core_instance();
+	if (!core)
+		return (0);
+	if (!stackop_push(&core->a, &core->b))
+		return (0);
+	core->op_count += 1;
+	return (1);
 }
