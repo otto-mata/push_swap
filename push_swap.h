@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 09:03:51 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:15:05 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int						ft_atoi(char const *nptr);
 void					*stackop_swap(t_stack *stack);
 void					*stackop_shift_up(t_stack *stack);
 void					*stackop_shift_down(t_stack *stack);
-void					*stackop_push(t_stack **from, t_stack **to);
+void					*stackop_push(t_stack *from, t_stack *to);
 int						stackop_pushi(int val, t_stack **to);
 int						stackop_popi(t_stack **from, int *ret);
 t_stack					*stack_init(int sz, char **raw);

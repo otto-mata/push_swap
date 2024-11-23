@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 21:14:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 09:47:22 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:16:41 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*stackop_shift_down(t_stack *stack)
 	int				tmp;
 
 	tmp = stack->content[stack->len - 1];
-	i = stack->len;
+	i = otto_min(stack->len, stack->sz);
 	while (i)
 	{
 		ft_swap(&stack->content[i], &stack->content[i - 1]);

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 11:28:53 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 17:39:48 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	stack_print(t_stack *stack, char const *name)
 	printf("STACK [%s] CONTENT:\n", name);
 	i = -1;
 	if (stack->len == 0)
-		printf("% 10s\n", "NO CONTENT");
+		printf("%10s\n", "NO CONTENT");
 	while (++i < stack->len)
 		printf("%-10s [%lu] = %d\n", "", i, stack->content[i]);
 }
