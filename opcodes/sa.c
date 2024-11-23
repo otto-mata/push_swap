@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 08:44:49 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:10:08 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ int	sa(void)
 	if (!stackop_swap(core->a))
 		return (0);
 	core->op_count += 1;
+	core_register_command("sa");
 	return (1);
 }

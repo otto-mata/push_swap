@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   pb.c                                               :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:35:15 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 19:09:31 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/23 19:06:05 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "push_swap.h"
 
-int	pb(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_core	*core;
+	size_t const	s1sz = ft_strlen(s1);
+	size_t const	s2sz = ft_strlen(s2);
+	size_t const	sz = s1sz + s2sz + 1;
+	char			*s;
 
-	core = core_instance();
-	if (!core)
+	s = osgc_calloc(sz, sizeof(char));
+	if (!s)
 		return (0);
-	if (!stackop_push(core->a, core->b))
-		return (0);
-	core->op_count += 1;
-	core_register_command("pb");
-	return (1);
+	otto_memcpy(s, s1, s1sz);
+	otto_memcpy(s + s1sz, s2, s2sz);
+	return (s);
 }

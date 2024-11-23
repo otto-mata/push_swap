@@ -1,32 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core_instance.c                                    :+:      :+:    :+:   */
+/*   stack_sort_three_a.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:01:15 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 19:03:06 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/23 19:14:18 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/23 19:25:25 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_core	*core_instance(void)
+void	stack_sort_three_a(void)
 {
-	static t_core	*inst = 0;
+	int				fst;
+	int				scd;
+	int				trd;
+	t_core const	*core = core_instance();
 
-	if (!inst)
+	if (!core)
+		return ;
+	fst = core->a->content[0];
+	scd = core->a->content[1];
+	trd = core->a->content[2];
+	if ((fst < scd) && (scd > trd))
 	{
-		inst = osgc_malloc(sizeof(t_core));
-		if (!inst)
-			return (0);
-		inst->a_sorted = 0;
-		inst->b_empty = 1;
-		inst->op_count = 0;
-		inst->operations = osgc_malloc(1);
-		if (!inst->operations)
-			return (0);
+		rra();
+		if ((fst < trd))
+			sa();
 	}
-	return (inst);
+	else if ((fst > scd) && (scd < trd) && (fst > trd))
+		ra();
+	else if ((fst > scd) && (scd > trd))
+	{
+		sa();
+		rra();
+	}
+	sa();
 }

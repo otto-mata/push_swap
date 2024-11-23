@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 17:39:48 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:26:12 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,21 +32,17 @@ int	main(int argc, char const *argv[])
 	t_core	*core;
 
 	core_init(argc - 1, (char **)&argv[1]);
-	sa();
 	pb();
-	pb();
-	pb();
-	ra();
 	rb();
-	rra();
-	rrb();
+	pb();
+	rb();
+	pb();
 	sa();
 	pa();
 	pa();
 	pa();
 	core = core_instance();
-	stack_print(core->a, "a");
-	printf("total operations: %d\n", core->op_count);
+	printf("%s", core->operations);
 	osgc_clear();
 	return (0);
 }

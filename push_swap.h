@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 17:15:05 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/23 19:09:10 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ struct					s_core
 {
 	t_stack				*a;
 	t_stack				*b;
+	char				*operations;
 	int					a_sorted;
 	int					b_empty;
 	int					op_count;
@@ -37,6 +38,9 @@ typedef struct s_core	t_core;
 
 void					ft_swap(int *a, int *b);
 int						ft_atoi(char const *nptr);
+size_t					ft_strlen(char const *s);
+char					*ft_strjoin(char const *s1, char const *s2);
+
 void					*stackop_swap(t_stack *stack);
 void					*stackop_shift_up(t_stack *stack);
 void					*stackop_shift_down(t_stack *stack);
@@ -46,6 +50,7 @@ int						stackop_popi(t_stack **from, int *ret);
 t_stack					*stack_init(int sz, char **raw);
 t_stack					*stack_reserve(int sz);
 t_core					*core_instance(void);
+void					core_register_command(char *cmd);
 int						core_init(int sz, char **raw_content);
 
 int						stack_is_sorted(t_stack *stack);
