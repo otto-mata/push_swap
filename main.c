@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 19:26:12 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/25 13:33:49 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,18 @@ void	stack_print(t_stack *stack, char const *name)
 
 int	main(int argc, char const *argv[])
 {
-	t_core	*core;
-
-	core_init(argc - 1, (char **)&argv[1]);
-	pb();
-	rb();
-	pb();
-	rb();
-	pb();
-	sa();
-	pa();
-	pa();
-	pa();
-	core = core_instance();
-	printf("%s", core->operations);
+	if (argc == 1)
+		return (0);
+	if (argc == 2)
+		args_prepare(argv[1]);
+	else
+		args_use_argv(argv + 1);
+	args_register_handler(&validator_all_atoi_safe);
+	args_register_handler(&validator_all_int32);
+	args_register_handler(&transformer_atoi);
+	args_register_handler(&validator_all_uniq);
+	if (!args_validate())
+		write(2, "Error.\n", ft_strlen("Error.\n"));
 	osgc_clear();
 	return (0);
 }
