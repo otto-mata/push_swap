@@ -6,15 +6,15 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 13:33:23 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:09:18 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "osgc/osgc.h"
-# include <unistd.h>
 # include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_core	t_core;
 typedef struct s_stack	t_stack;
@@ -66,12 +66,14 @@ void					*stackop_shift_down(t_stack *stack);
 void					*stackop_push(t_stack *from, t_stack *to);
 int						stackop_pushi(int val, t_stack **to);
 int						stackop_popi(t_stack **from, int *ret);
-t_stack					*stack_init(int sz, char **raw);
+t_stack					*stack_init(int sz, int *args);
 t_stack					*stack_reserve(int sz);
 int						stack_is_sorted(t_stack *stack);
+
 t_core					*core_instance(void);
 void					core_register_command(char *cmd);
-int						core_init(int sz, char **raw_content);
+int						core_init(void);
+int						core_can_start(void);
 
 t_args					*args_instance(void);
 int						args_prepare(t_stringc arg);

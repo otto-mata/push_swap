@@ -1,28 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core_init.c                                        :+:      :+:    :+:   */
+/*   args_use_argv.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:02:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 14:04:03 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/25 12:26:11 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/25 14:07:59 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	core_init(void)
+void	args_use_argv(t_stringc *argv)
 {
-	t_core	*core;
-	t_args	*args;
+	t_args *const	inst = args_instance();
 
-	core = core_instance();
-	args = args_instance();
-	if (!core || !args)
-		return (0);
-	core->a = stack_init(args->count, args->clean);
-	core->b = stack_reserve(args->count);
-	core->a_sorted = stack_is_sorted(core->a);
-	return (1);
+	if (!inst || !argv)
+		return ;
+	inst->args = (char **)argv;
 }

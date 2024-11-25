@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 07:48:47 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 08:24:37 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:03:05 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*stack_init(int sz, char **raw)
+t_stack	*stack_init(int sz, int *args)
 {
 	t_stack	*stack;
 	int		i;
@@ -23,7 +23,7 @@ t_stack	*stack_init(int sz, char **raw)
 	i = 0;
 	while (i < sz)
 	{
-		stack->content[i] = ft_atoi(raw[i]);
+		stack->content[i] = args[i];
 		i++;
 	}
 	stack->len = i;

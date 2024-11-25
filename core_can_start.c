@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   arg_use_argv.c                                     :+:      :+:    :+:   */
+/*   core_can_start.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/25 12:26:11 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 12:53:32 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/25 14:07:37 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/25 14:08:57 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	args_use_argv(t_stringc *argv)
+int	core_can_start(void)
 {
-	t_args *const	inst = args_instance();
+	t_core	*core;
 
-	if (!inst || !argv)
-		return ;
-	inst->args = (char **)argv;
+	core = core_instance();
+	if (!core)
+		return (0);
+	return (!core->a_sorted);
 }

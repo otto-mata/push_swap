@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 13:33:49 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/25 14:10:27 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ int	main(int argc, char const *argv[])
 	args_register_handler(&validator_all_uniq);
 	if (!args_validate())
 		write(2, "Error.\n", ft_strlen("Error.\n"));
+	core_init();
+	if (core_can_start())
+		write(1, "Exec", 4);
 	osgc_clear();
 	return (0);
 }
