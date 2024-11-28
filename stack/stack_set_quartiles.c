@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   stack_set_quartiles.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 15:49:30 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+void	stack_set_quartiles(t_stack *stack)
 {
-	t_core	*core;
-
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	if (stack->len % 2 == 0)
+		stack->mid = stack->len / 2;
+	else
+		stack->mid = (stack->len + 1) / 2;
+	if (stack->mid % 2 == 0)
+		stack->q1 = stack->mid / 2;
+	else
+		stack->q1 = (stack->mid + 1) / 2;
+	stack->q3 = stack->mid + stack->q1;
+	if (stack->len > 5)
+	{
+		stack->q1 = stack->content[stack->q1];
+		stack->q3 = stack->content[stack->q3];
+	}
+	else
+	{
+		stack->q1 = 0;
+		stack->q3 = 0;
+	}
 }

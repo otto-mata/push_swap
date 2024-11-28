@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   stack_reserve.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/22 07:48:46 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+t_stack	*stack_reserve(int sz)
 {
-	t_core	*core;
+	t_stack	*stack;
 
-	core = core_instance();
-	if (!core)
+	stack = osgc_malloc(sizeof(t_stack));
+	if (!stack)
 		return (0);
-	if (!stackop_shift_up(core->a))
+	stack->sz = sz;
+	stack->content = osgc_malloc(sz * sizeof(int));
+	stack->len = 0;
+	if (!stack->content)
 		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	return (stack);
 }

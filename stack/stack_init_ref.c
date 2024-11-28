@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   stack_init_ref.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/22 07:48:47 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+t_stack	*stack_init_ref(int sz, int *args)
 {
-	t_core	*core;
+	t_stack		*stack;
+	int			i;
 
-	core = core_instance();
-	if (!core)
+	ft_quick_sort(args, 0, sz - 1);
+	stack = stack_reserve(sz);
+	if (!stack)
 		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	i = 0;
+	while (i < sz)
+	{
+		stack->content[i] = args[i];
+		i++;
+	}
+	stack->len = i;
+	stack_set_quartiles(stack);
+	return (stack);
 }

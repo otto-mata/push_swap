@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   stack_max.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 17:03:15 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+int	stack_max(t_stack *stack)
 {
-	t_core	*core;
+	int				max;
+	unsigned long	i;
 
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	max = INT32_MIN;
+	i = 0;
+	while (i < stack->len)
+	{
+		if (stack->content[i] > max)
+			max = stack->content[i];
+		i++;
+	}
+	return (max);
 }

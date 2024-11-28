@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   ft_nb_length.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/25 19:24:17 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:09:28 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+int	ft_nb_length(int nb)
 {
-	t_core	*core;
+	int	sz;
 
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	sz = 0;
+	if ((nb < 0) || (nb == 0))
+	{
+		sz = 1;
+	}
+	while (nb)
+	{
+		sz = sz + 1;
+		nb /= 10;
+	}
+	return (sz);
 }

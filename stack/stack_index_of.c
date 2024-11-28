@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   stack_index_of.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 16:39:01 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+ssize_t	stack_index_of(t_stack *stack, int n)
 {
-	t_core	*core;
+	ssize_t	i;
 
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	i = 0;
+	while (i < (ssize_t)(stack->len))
+	{
+		if (stack_value_at(stack, i) == n)
+			return (i);
+		i++;
+	}
+	return (-1);
 }

@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   args_validate.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/25 10:42:05 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:08:57 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	ra(void)
+int	args_validate(void)
 {
-	t_core	*core;
+	t_args *const	inst = args_instance();
+	int				i;
 
-	core = core_instance();
-	if (!core)
+	i = 0;
+	if (!inst)
 		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	while (inst->validators[i] && !inst->error)
+	{
+		inst->validators[i]();
+		i++;
+	}
+	return (!inst->error);
 }

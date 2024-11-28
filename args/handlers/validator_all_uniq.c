@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ra.c                                               :+:      :+:    :+:   */
+/*   validator_all_uniq.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/25 13:11:42 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:10:46 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../../push_swap.h"
 
-int	ra(void)
+void	validator_all_uniq(void)
 {
-	t_core	*core;
+	t_args *const	inst = args_instance();
+	int				i;
+	int				j;
 
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_shift_up(core->a))
-		return (0);
-	core->op_count += 1;
-	ft_print_op("ra");
-	return (1);
+	i = 0;
+	if (!inst)
+		return ;
+	while (i < inst->count - 1 && !inst->error)
+	{
+		j = i + 1;
+		while (j < inst->count && !inst->error)
+		{
+			if (inst->clean[i] == inst->clean[j])
+			{
+				inst->error = 1;
+				return ;
+			}
+			j++;
+		}
+		i++;
+	}
 }

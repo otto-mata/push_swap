@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:00:57 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:19:59 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef					void(t_handler_fn)(void);
 typedef char const		*t_stringc;
 struct					s_stack
 {
-	unsigned long		sz;
-	unsigned long		len;
+	size_t				sz;
+	size_t				len;
 	int					*content;
-	unsigned long		mid;
+	size_t				mid;
 	int					q1;
 	int					q3;
 };
@@ -56,25 +56,17 @@ struct					s_args
 void					ft_swap(int *a, int *b);
 int						ft_atoi(char const *nptr);
 size_t					ft_strlen(char const *s);
-char					*ft_strjoin(char const *s1, char const *s2);
 char					**ft_split(char const *s, char c);
 int						ft_isalpha(int c);
-char					*ft_strtrim(char const *s, char const *set);
-char					*ft_strmapi(char const *s, char (*f)(unsigned int,
-								char));
 char					*ft_strdup(char const *s);
-int						ft_strncmp(char const *s1, char const *s2, size_t n);
-int						ft_memcmp(void const *m1, void const *m2, size_t sz);
-long					ft_pow(int a, int n);
 int						ft_nb_length(int nb);
 void					ft_quick_sort(int array[], int low, int high);
+void					ft_print_op(char *cmd);
 
 void					*stackop_swap(t_stack *stack);
 void					*stackop_shift_up(t_stack *stack);
 void					*stackop_shift_down(t_stack *stack);
 void					*stackop_push(t_stack *from, t_stack *to);
-int						stackop_pushi(int val, t_stack **to);
-int						stackop_popi(t_stack **from, int *ret);
 t_stack					*stack_init(int sz, int *args);
 t_stack					*stack_reserve(int sz);
 int						stack_is_sorted(t_stack *stack);
@@ -111,8 +103,6 @@ void					validator_all_int32(void);
 void					validator_all_uniq(void);
 
 void					transformer_atoi(void);
-
-void					main_print_op(char *cmd);
 
 int						op_cost(int n);
 int						op_get_best(void);
