@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   stack_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 18:27:49 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 19:00:40 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 19:00:51 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	stack_sort(void)
 {
-	size_t const	s1sz = ft_strlen(s1);
-	size_t const	s2sz = ft_strlen(s2);
-	size_t const	sz = s1sz + s2sz + 1;
-	char			*s;
+	t_core	*core;
 
-	s = osgc_calloc(sz, sizeof(char));
-	if (!s)
-		return (0);
-	otto_memcpy(s, s1, s1sz);
-	otto_memcpy(s + s1sz, s2, s2sz);
-	return (s);
+	core = core_instance();
+	if (!core)
+		return ;
+	if (core->ref->len == 2)
+	{
+		if (stack_value_at(core->a, 0) > stack_value_at(core->a, 1))
+			sa();
+	}
+	else if (core->ref->len > 2)
+		if (!stack_is_sorted(core->a))
+			push_b_optimize();
 }

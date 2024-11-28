@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   core_register_command.c                            :+:      :+:    :+:   */
+/*   stack_first.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/23 19:03:40 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 19:07:59 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 16:25:49 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 16:26:31 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	core_register_command(char *cmd)
+int	stack_first(t_stack *stack)
 {
-	t_core	*core;
-
-	core = core_instance();
-	if (!core)
-		return ;
-	core->operations = ft_strjoin(core->operations, ft_strjoin(cmd, "\n"));
+	return (stack_value_at(stack, 0));
 }

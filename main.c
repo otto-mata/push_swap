@@ -6,25 +6,55 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 14:10:27 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:01:12 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_print(t_stack *stack, char const *name)
+void	push_a_optimize(void)
 {
-	unsigned long	i;
+	t_core	*core;
 
-	printf("STACK [%s] INFO:\n", name);
-	printf("%-10s > %lu\n", "n_elems", stack->len);
-	printf("%-10s > %lu\n", "total_sz", stack->sz);
-	printf("STACK [%s] CONTENT:\n", name);
-	i = -1;
-	if (stack->len == 0)
-		printf("%10s\n", "NO CONTENT");
-	while (++i < stack->len)
-		printf("%-10s [%lu] = %d\n", "", i, stack->content[i]);
+	core = core_instance();
+	if (!core)
+		return ;
+	core->ref->len -= 3;
+	while (core->ref->len)
+	{
+		op_insertion_sort(op_get_best());
+		core->ref->len--;
+	}
+	stack_replace_a();
+}
+
+void	push_b_optimize(void)
+{
+	t_core	*core;
+
+	core = core_instance();
+	if (!core)
+		return ;
+	while (stack_inner(core->a) && core->ref->len >= 8)
+	{
+		if (stack_first(core->a) >= core->ref->q1
+			&& stack_first(core->a) <= core_get_ref_mid())
+			(pb(), rb());
+		if (stack_first(core->a) <= core->ref->q3
+			&& stack_first(core->a) >= core_get_ref_mid())
+			pb();
+		else
+			ra();
+	}
+	while (core->a->len > 3)
+	{
+		pb();
+		if (stack_first(core->b) > core_get_ref_mid())
+			rb();
+	}
+	if (!(stack_is_sorted(core->a)))
+		stack_sort_three_a();
+	push_a_optimize();
 }
 
 int	main(int argc, char const *argv[])
@@ -40,10 +70,13 @@ int	main(int argc, char const *argv[])
 	args_register_handler(&transformer_atoi);
 	args_register_handler(&validator_all_uniq);
 	if (!args_validate())
-		write(2, "Error.\n", ft_strlen("Error.\n"));
+	{
+		write(2, "Error\n", ft_strlen("Error\n"));
+		return (1);
+	}
 	core_init();
-	if (core_can_start())
-		write(1, "Exec", 4);
+	args_destroy();
+	handler_stack_sort();
 	osgc_clear();
 	return (0);
 }

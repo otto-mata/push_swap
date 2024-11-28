@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   stack_get_target_place.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 18:27:49 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 17:02:03 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 18:39:45 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	stack_get_target_place(t_stack *stack, int n)
 {
-	size_t const	s1sz = ft_strlen(s1);
-	size_t const	s2sz = ft_strlen(s2);
-	size_t const	sz = s1sz + s2sz + 1;
-	char			*s;
+	int		min;
+	size_t	i;
 
-	s = osgc_calloc(sz, sizeof(char));
-	if (!s)
-		return (0);
-	otto_memcpy(s, s1, s1sz);
-	otto_memcpy(s + s1sz, s2, s2sz);
-	return (s);
+	min = stack_min(stack);
+	if (n > stack_max(stack) || n < min)
+		return (stack_index_of(stack, min));
+	i = 1;
+	while (i < stack->len)
+	{
+		if (stack_value_at(stack, i - 1) < n && n < stack_value_at(stack, i))
+			return (i);
+		i++;
+	}
+	return (0);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   op_optimize.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 18:27:49 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 17:12:32 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 18:47:21 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	op_optimize(ssize_t pos_a, ssize_t pos_b)
 {
-	size_t const	s1sz = ft_strlen(s1);
-	size_t const	s2sz = ft_strlen(s2);
-	size_t const	sz = s1sz + s2sz + 1;
-	char			*s;
+	ssize_t	i;
+	t_core	*core;
 
-	s = osgc_calloc(sz, sizeof(char));
-	if (!s)
+	core = core_instance();
+	if (!core)
 		return (0);
-	otto_memcpy(s, s1, s1sz);
-	otto_memcpy(s + s1sz, s2, s2sz);
-	return (s);
+	i = 0;
+	if ((pos_a <= (core->a->len / 2)) && (pos_b <= (core->b->len / 2)))
+		while (i <= (pos_a - 1) && i <= (pos_b - 1))
+			(rr(), i++);
+	if ((pos_a > (core->a->len / 2)) && (pos_b > (core->b->len / 2)))
+		while (i < (core->a->len - pos_a) && i < (core->b->len - pos_b))
+			(rrr(), i++);
+	return (i);
 }

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_pow.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 18:27:49 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/25 19:22:12 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/25 19:22:57 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+long	ft_pow(int a, int n)
 {
-	size_t const	s1sz = ft_strlen(s1);
-	size_t const	s2sz = ft_strlen(s2);
-	size_t const	sz = s1sz + s2sz + 1;
-	char			*s;
+	long	ans;
+	int		last_bit;
 
-	s = osgc_calloc(sz, sizeof(char));
-	if (!s)
-		return (0);
-	otto_memcpy(s, s1, s1sz);
-	otto_memcpy(s + s1sz, s2, s2sz);
-	return (s);
+	ans = 1;
+	while (n > 0)
+	{
+		last_bit = (n & 1);
+		if (last_bit)
+		{
+			ans = ans * a;
+		}
+		a = a * a;
+		n = n >> 1;
+	}
+	return (ans);
 }

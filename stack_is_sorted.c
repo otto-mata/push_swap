@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:10:31 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/22 08:27:59 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/28 16:03:05 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ int	stack_is_sorted(t_stack *stack)
 			descending = 0;
 		i++;
 	}
-	if (ascending && descending)
-		return (2);
 	if (ascending)
 		return (1);
 	if (descending)

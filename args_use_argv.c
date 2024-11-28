@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 12:26:11 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 14:07:59 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:35:34 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ void	args_use_argv(t_stringc *argv)
 
 	if (!inst || !argv)
 		return ;
+	inst->must_clean_args = false;
 	inst->args = (char **)argv;
 }

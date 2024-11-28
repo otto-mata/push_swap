@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:01:15 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/23 19:03:06 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:27:58 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_core	*core_instance(void)
 		inst->a_sorted = 0;
 		inst->b_empty = 1;
 		inst->op_count = 0;
-		inst->operations = osgc_malloc(1);
+		inst->operations = ft_strdup("");
 		if (!inst->operations)
 			return (0);
 	}

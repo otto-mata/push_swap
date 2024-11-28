@@ -6,13 +6,14 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 14:09:18 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/28 19:00:57 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 # include "osgc/osgc.h"
+# include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -26,12 +27,16 @@ struct					s_stack
 	unsigned long		sz;
 	unsigned long		len;
 	int					*content;
+	unsigned long		mid;
+	int					q1;
+	int					q3;
 };
 
 struct					s_core
 {
 	t_stack				*a;
 	t_stack				*b;
+	t_stack				*ref;
 	char				*operations;
 	int					a_sorted;
 	int					b_empty;
@@ -43,6 +48,7 @@ struct					s_args
 	int					count;
 	int					error;
 	int					*clean;
+	bool				must_clean_args;
 	char				**args;
 	t_handler_fn		**validators;
 };
@@ -59,6 +65,9 @@ char					*ft_strmapi(char const *s, char (*f)(unsigned int,
 char					*ft_strdup(char const *s);
 int						ft_strncmp(char const *s1, char const *s2, size_t n);
 int						ft_memcmp(void const *m1, void const *m2, size_t sz);
+long					ft_pow(int a, int n);
+int						ft_nb_length(int nb);
+void					ft_quick_sort(int array[], int low, int high);
 
 void					*stackop_swap(t_stack *stack);
 void					*stackop_shift_up(t_stack *stack);
@@ -69,23 +78,46 @@ int						stackop_popi(t_stack **from, int *ret);
 t_stack					*stack_init(int sz, int *args);
 t_stack					*stack_reserve(int sz);
 int						stack_is_sorted(t_stack *stack);
+int						stack_value_at(t_stack *stack, ssize_t index);
+t_stack					*stack_init_ref(int sz, int *args);
+void					stack_set_quartiles(t_stack *stack);
+bool					stack_inner(t_stack *stack);
+int						stack_first(t_stack *stack);
+void					stack_sort_three_a(void);
+ssize_t					stack_index_of(t_stack *stack, int n);
+int						stack_min(t_stack *stack);
+int						stack_max(t_stack *stack);
+int						stack_get_target_place(t_stack *stack, int n);
+void					stack_replace_a(void);
+void					stack_sort(void);
+void					stack_print(t_stack *stack, char const *name);
 
 t_core					*core_instance(void);
-void					core_register_command(char *cmd);
 int						core_init(void);
 int						core_can_start(void);
+int						core_get_ref_q1(void);
+int						core_get_ref_q3(void);
+int						core_get_ref_mid(void);
 
 t_args					*args_instance(void);
 int						args_prepare(t_stringc arg);
 int						args_register_handler(t_handler_fn *fn);
 int						args_validate(void);
 void					args_use_argv(t_stringc *argv);
+void					args_destroy(void);
 
 void					validator_all_atoi_safe(void);
 void					validator_all_int32(void);
 void					validator_all_uniq(void);
 
 void					transformer_atoi(void);
+
+void					main_print_op(char *cmd);
+
+int						op_cost(int n);
+int						op_get_best(void);
+int						op_optimize(ssize_t pos_a, ssize_t pos_b);
+void					op_insertion_sort(int move);
 
 int						pa(void);
 int						pb(void);

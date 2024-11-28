@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   stack_replace_a.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 18:27:49 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/28 17:26:24 by tblochet          #+#    #+#             */
+/*   Updated: 2024/11/28 17:30:51 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	stack_replace_a(void)
 {
-	size_t const	s1sz = ft_strlen(s1);
-	size_t const	s2sz = ft_strlen(s2);
-	size_t const	sz = s1sz + s2sz + 1;
-	char			*s;
+	int		m;
+	size_t	index;
+	t_core	*core;
 
-	s = osgc_calloc(sz, sizeof(char));
-	if (!s)
-		return (0);
-	otto_memcpy(s, s1, s1sz);
-	otto_memcpy(s + s1sz, s2, s2sz);
-	return (s);
+	core = core_instance();
+	if (!core)
+		return ;
+	m = stack_min(core->a);
+	if (stack_first(core->a) != m)
+	{
+		index = stack_index_of(core->a, m);
+		if (index <= core->a->len / 2)
+			while (stack_first(core->a) != m)
+				ra();
+		else
+			while (stack_first(core->a) != m)
+				rra();
+	}
 }

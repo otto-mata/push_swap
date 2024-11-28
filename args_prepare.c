@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 09:55:26 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/25 12:14:51 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/11/28 15:35:17 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ int	args_prepare(t_stringc arg)
 
 	if (!inst || !arg)
 		return (0);
+	inst->must_clean_args = true;
 	inst->args = ft_split(arg, ' ');
 	if (!(inst->args))
 		return (0);
