@@ -53,5 +53,4 @@ dkms.conf
 
 ./main.c
 ./.vscode/
-./libft.code-workspace
-.bonus
+./push_swap

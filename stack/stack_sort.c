@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:00:40 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/04 13:31:53 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:47:53 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ void	stack_sort(void)
 			sa();
 	}
 	else if (core->ref->len > 2)
-		if (!stack_is_sorted(core->a))
+		if (stack_is_sorted(core->a) < 1)
 			stack_sort_b();
 }
