@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:56:31 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:11:33 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:40:12 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	op_get_best(void)
 	int		best_move_elem;
 	int		move_count;
 	int		best_move_count;
-	size_t	i;
+	ssize_t	i;
 
 	core = core_instance();
 	if (!core)

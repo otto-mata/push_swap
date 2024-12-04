@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:19:59 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:31:24 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ typedef					void(t_handler_fn)(void);
 typedef char const		*t_stringc;
 struct					s_stack
 {
-	size_t				sz;
-	size_t				len;
+	ssize_t				sz;
+	ssize_t				len;
 	int					*content;
-	size_t				mid;
+	ssize_t				mid;
 	int					q1;
 	int					q3;
 };
@@ -82,6 +82,8 @@ int						stack_max(t_stack *stack);
 int						stack_get_target_place(t_stack *stack, int n);
 void					stack_replace_a(void);
 void					stack_sort(void);
+void					stack_sort_a(void);
+void					stack_sort_b(void);
 void					stack_print(t_stack *stack, char const *name);
 
 t_core					*core_instance(void);

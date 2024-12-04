@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:26:24 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:27:30 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	stack_replace_a(void)
 {
 	int		m;
-	size_t	index;
+	ssize_t	index;
 	t_core	*core;
 
 	core = core_instance();

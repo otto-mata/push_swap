@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_min.c                                        :+:      :+:    :+:   */
+/*   stack_sort_a.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/28 17:02:49 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/04 13:27:18 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/04 13:29:22 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/04 13:31:07 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	stack_min(t_stack *stack)
+void	stack_sort_a(void)
 {
-	int		min;
-	long	i;
+	t_core	*core;
 
-	min = INT32_MAX;
-	i = 0;
-	while (i < stack->len)
+	core = core_instance();
+	if (!core)
+		return ;
+	core->ref->len -= 3;
+	while (core->ref->len)
 	{
-		if (stack->content[i] < min)
-			min = stack->content[i];
-		i++;
+		op_insertion_sort(op_get_best());
+		core->ref->len--;
 	}
-	return (min);
+	stack_replace_a();
 }

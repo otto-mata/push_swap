@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:10:31 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:26:57 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	stack_is_sorted(t_stack *stack)
 {
-	int				ascending;
-	int				descending;
-	unsigned long	i;
+	int		ascending;
+	int		descending;
+	long	i;
 
 	ascending = 1;
 	descending = 1;

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:10:16 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:11:33 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:40:19 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	op_insertion_sort(int n)
 {
-	size_t	pos_a;
-	size_t	pos_b;
-	size_t	i;
+	ssize_t	pos_a;
+	ssize_t	pos_b;
+	ssize_t	i;
 	t_core	*core;
 
 	core = core_instance();

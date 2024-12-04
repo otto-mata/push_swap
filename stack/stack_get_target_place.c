@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:02:03 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:26:37 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	stack_get_target_place(t_stack *stack, int n)
 {
 	int		min;
-	size_t	i;
+	ssize_t	i;
 
 	min = stack_min(stack);
 	if (n > stack_max(stack) || n < min)

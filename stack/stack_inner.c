@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:01:31 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:08:20 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:26:44 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	stack_inner(t_stack *stack)
 {
-	size_t	i;
+	ssize_t	i;
 	int		val;
 	t_core	*core;
 

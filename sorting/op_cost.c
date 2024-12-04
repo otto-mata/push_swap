@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 16:58:07 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:11:33 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/04 13:40:06 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	op_cost(int n)
 {
 	t_core	*core;
 	int		cost;
-	size_t	i;
+	ssize_t	i;
 
 	core = core_instance();
 	if (!core)
