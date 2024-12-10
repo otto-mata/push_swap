@@ -1,6 +1,6 @@
 NAME=push_swap
 CC=cc
-CFLAGS=-Wall -Wextra -Werror -std=c89 -g3
+CFLAGS=-Wall -Wextra -Werror 
 LIB_PATH=./osgc/
 LIB_NAME=osgc
 ARGS_SRC_FILES=args_destroy.c \
