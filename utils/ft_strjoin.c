@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:33:07 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 13:25:47 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/14 17:25:22 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/14 17:36:12 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	rb(void)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_core	*core;
+	size_t	s1sz;
+	size_t	sz;
+	char	*s;
+	size_t	i;
 
-	core = core_instance();
-	if (!core)
+	if (!s1 || !s2)
 		return (0);
-	if (!stackop_shift_up(core->b))
+	s1sz = ft_strlen(s1);
+	sz = s1sz + ft_strlen(s2) + 1;
+	s = osgc_calloc(sz, sizeof(char));
+	if (!s)
 		return (0);
-	core->op_count += 1;
-	if (!core->check_mode)
-		ft_print_op("rb");
-	return (1);
+	i = 0;
+	while (i < s1sz)
+	{
+		s[i] = s1[i];
+		i++;
+	}
+	while (i < sz)
+	{
+		s[i] = s2[i - s1sz];
+		i++;
+	}
+	return (s);
 }

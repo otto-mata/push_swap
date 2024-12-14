@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:35:15 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:25:27 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	pb(void)
 	if (!stackop_push(core->a, core->b))
 		return (0);
 	core->op_count += 1;
-	ft_print_op("pb");
+	if (!core->check_mode)
+		ft_print_op("pb");
 	return (1);
 }

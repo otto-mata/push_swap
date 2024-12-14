@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:12:25 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/14 13:25:34 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ra(void)
 	if (!stackop_shift_up(core->a))
 		return (0);
 	core->op_count += 1;
-	ft_print_op("ra");
+	if (!core->check_mode)
+		ft_print_op("ra");
 	return (1);
 }

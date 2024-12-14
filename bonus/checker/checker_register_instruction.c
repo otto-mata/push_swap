@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   checker_register_instruction.c                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:33:07 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 13:25:47 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/14 14:31:37 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/14 14:35:22 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../bonus.h"
 
-int	rb(void)
+int	checker_register_instruction(t_instruction_fn *fn)
 {
-	t_core	*core;
+	t_checker	*checker;
+	int			i;
 
-	core = core_instance();
-	if (!core)
+	checker = checker_instance();
+	i = 0;
+	if (!checker)
 		return (0);
-	if (!stackop_shift_up(core->b))
+	while (checker->instructions && checker->instructions[i])
+		i++;
+	checker->instructions = osgc_realloc(checker->instructions, i
+			* sizeof(void *), (i + 2) * sizeof(void *));
+	if (!checker->instructions)
 		return (0);
-	core->op_count += 1;
-	if (!core->check_mode)
-		ft_print_op("rb");
+	checker->instructions[i] = fn;
+	checker->instructions[i + 1] = 0;
 	return (1);
 }

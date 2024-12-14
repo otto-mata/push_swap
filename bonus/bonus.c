@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   bonus.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/19 20:21:43 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 14:15:27 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/14 13:18:22 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/14 18:01:51 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "bonus.h"
 
 int	main(int argc, char const *argv[])
 {
@@ -30,9 +30,10 @@ int	main(int argc, char const *argv[])
 		return (1);
 	}
 	core_init();
-	core_init_ref();
 	args_destroy();
-	stack_sort();
+	core_enable_check_mode();
+	checker_get_stdin();
+	checker_apply();
 	osgc_clear();
 	return (0);
 }

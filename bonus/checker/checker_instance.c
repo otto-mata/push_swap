@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rb.c                                               :+:      :+:    :+:   */
+/*   checker_instance.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:33:07 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 13:25:47 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/14 13:37:26 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/14 13:54:48 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../bonus.h"
 
-int	rb(void)
+t_checker	*checker_instance(void)
 {
-	t_core	*core;
+	static t_checker	*inst = 0;
 
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_shift_up(core->b))
-		return (0);
-	core->op_count += 1;
-	if (!core->check_mode)
-		ft_print_op("rb");
-	return (1);
+	if (!inst)
+	{
+		inst = osgc_malloc(sizeof(t_checker));
+		if (!inst)
+			return (0);
+		inst->instructions = 0;
+		inst->instruction_count = 0;
+	}
+	return (inst);
 }
