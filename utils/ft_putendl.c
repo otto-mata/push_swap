@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_op.c                                      :+:      :+:    :+:   */
+/*   ft_putendl.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 19:03:40 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 13:25:03 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/14 20:09:31 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	ft_print_op(char *cmd)
+void	ft_putendl(char *str)
 {
-	write(1, cmd, ft_strlen(cmd));
+	ft_putstr(str);
 	write(1, "\n", 1);
 }

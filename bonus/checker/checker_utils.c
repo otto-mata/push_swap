@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 19:46:39 by tblochet         ###   ########.fr       */
+/*   Created: 2024/12/14 19:41:14 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/14 19:42:18 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../bonus.h"
 
-int	sa(void)
+char	*ft_join_and_free_s1(char *s1, char *s2)
 {
-	t_core	*core;
+	char	*temp;
 
-	core = core_instance();
-	if (!core)
+	if (!s1 || !s2)
 		return (0);
-	if (!stackop_swap(core->a))
-		return (0);
-	core->op_count += 1;
-	if (!core->check_mode)
-		ft_putendl("sa");
-	return (1);
+	temp = ft_strjoin(s1, s2);
+	osgc_free(s1);
+	return (temp);
+}
+
+int	_strcmp(char const *s1, char const *s2)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
+		i++;
+	return (s1[i] - s2[i]);
 }

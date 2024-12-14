@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sa.c                                               :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 08:31:14 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 19:46:39 by tblochet         ###   ########.fr       */
+/*   Created: 2024/11/23 19:03:40 by tblochet          #+#    #+#             */
+/*   Updated: 2024/12/14 20:09:13 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	sa(void)
+void	ft_putstr(char *str)
 {
-	t_core	*core;
-
-	core = core_instance();
-	if (!core)
-		return (0);
-	if (!stackop_swap(core->a))
-		return (0);
-	core->op_count += 1;
-	if (!core->check_mode)
-		ft_putendl("sa");
-	return (1);
+	write(1, str, ft_strlen(str));
 }

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:38:03 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 17:38:11 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/14 20:25:45 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,11 @@ t_checker					*checker_instance(void);
 void						checker_get_stdin(void);
 int							checker_register_instruction(t_instruction_fn *fn);
 void						checker_apply(void);
+
+char						*ft_join_and_free_s1(char *s1, char *s2);
+int							_strcmp(char const *s1, char const *s2);
+
 void						core_enable_check_mode(void);
+void						core_enable_debug_mode(void);
+bool						core_debug(void);
 #endif

@@ -22,7 +22,9 @@ CORE_SRC_FILES= core_can_start.c \
 UTILS_SRC_FILES=ft_atoi.c \
 	ft_isalpha.c \
 	ft_nb_length.c \
-	ft_print_op.c \
+	ft_putendl.c \
+	ft_putstr.c \
+	ft_putchar.c \
 	ft_quick_sort.c \
 	ft_split.c \
 	ft_strdup.c \
@@ -79,9 +81,12 @@ OPCODES_SRC_FILES=pa.c \
 BONUS_CHECKER_SRC_FILES=checker_get_stdin.c \
 	checker_instance.c \
 	checker_register_instruction.c \
-	checker_apply.c
+	checker_apply.c \
+	checker_utils.c
 
-BONUS_CORE_ADDONS_SRC_FILES=core_enable_check_mode.c
+BONUS_CORE_ADDONS_SRC_FILES=core_enable_check_mode.c \
+	core_enable_debug_mode.c \
+	core_debug.c
 
 BONUS_MAIN_SRC=bonus.c
 
@@ -121,6 +126,7 @@ BONUS_CHECKER_FULL_PATH=$(addprefix $(BONUS_CHECKER_SRC_PATH), $(BONUS_CHECKER_S
 BONUS_CORE_ADDONS_FULL_PATH=$(addprefix $(BONUS_CORE_ADDONS_SRC_PATH), $(BONUS_CORE_ADDONS_SRC_FILES))
 BONUS_STACK_FULL_PATH=$(addprefix $(STACK_SRC_PATH), $(BONUS_STACK_SRC_FILES))
 BONUS_CORE_FULL_PATH=$(addprefix $(CORE_SRC_PATH), $(BONUS_CORE_SRC_FILES))
+BONUS_MAIN_FULL_PATH=$(addprefix $(BONUS_SRC_PATH), $(BONUS_MAIN_SRC))
 
 ARGS_OBJ=$(ARGS_FULL_PATH:.c=.o)
 ARGS_HANDLER_OBJ=$(ARGS_HANDLER_FULL_PATH:.c=.o)
@@ -131,6 +137,8 @@ SORTING_OBJ=$(SORTING_FULL_PATH:.c=.o)
 STACK_OBJ=$(STACK_FULL_PATH:.c=.o)
 STACKOP_OBJ=$(STACKOP_FULL_PATH:.c=.o)
 
+
+BONUS_MAIN_OBJ=$(BONUS_MAIN_FULL_PATH:.c=.o)
 BONUS_CHECKER_OBJ=$(BONUS_CHECKER_FULL_PATH:.c=.o)
 BONUS_CORE_ADDONS_OBJ=$(BONUS_CORE_ADDONS_FULL_PATH:.c=.o)
 BONUS_STACK_OBJ=$(BONUS_STACK_FULL_PATH:.c=.o)
@@ -140,9 +148,9 @@ $(NAME): $(ARGS_OBJ) $(ARGS_HANDLER_OBJ) $(CORE_OBJ) $(UTILS_OBJ) $(OPCODES_OBJ)
 	make -C $(LIB_PATH)
 	$(CC) $(CFLAGS) $(MAIN_SRC) $^ -L $(LIB_PATH) -l$(LIB_NAME) -o $@ 
 
-$(BONUS_NAME): $(BONUS_STACK_OBJ) $(BONUS_CHECKER_OBJ) $(BONUS_CORE_ADDONS_OBJ) $(ARGS_OBJ) $(ARGS_HANDLER_OBJ) $(BONUS_CORE_OBJ) $(UTILS_OBJ) $(OPCODES_OBJ) $(STACKOP_OBJ)
+$(BONUS_NAME): $(BONUS_MAIN_OBJ) $(BONUS_STACK_OBJ) $(BONUS_CHECKER_OBJ) $(BONUS_CORE_ADDONS_OBJ) $(ARGS_OBJ) $(ARGS_HANDLER_OBJ) $(BONUS_CORE_OBJ) $(UTILS_OBJ) $(OPCODES_OBJ) $(STACKOP_OBJ)
 	make -C $(LIB_PATH)
-	$(CC) $(CFLAGS) $(addprefix $(BONUS_SRC_PATH), $(BONUS_MAIN_SRC)) $^ -L $(LIB_PATH) -l$(LIB_NAME) -o $@ 
+	$(CC) $(CFLAGS) $^ -L $(LIB_PATH) -l$(LIB_NAME) -o $@ 
 
 all: $(NAME)
 

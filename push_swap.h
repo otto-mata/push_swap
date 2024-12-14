@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 17:26:35 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/14 21:10:53 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ struct					s_stack
 	ssize_t				mid;
 	int					q1;
 	int					q3;
+	int					bottom_value;
 };
 
 struct					s_core
@@ -41,6 +42,8 @@ struct					s_core
 	int					b_empty;
 	int					op_count;
 	bool				check_mode;
+	bool				debug_mode;
+	int					argc;
 };
 
 struct					s_args
@@ -62,7 +65,9 @@ char					*ft_strdup(char const *s);
 char					*ft_strjoin(char const *s1, char const *s2);
 int						ft_nb_length(int nb);
 void					ft_quick_sort(int array[], int low, int high);
-void					ft_print_op(char *cmd);
+void					ft_putendl(char *str);
+void					ft_putstr(char *str);
+void					ft_putchar(char c);
 
 void					*stackop_swap(t_stack *stack);
 void					*stackop_shift_up(t_stack *stack);

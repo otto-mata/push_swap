@@ -6,33 +6,11 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:29:21 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 17:55:33 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/14 19:41:35 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../bonus.h"
-#include <fcntl.h>
-
-static char	*ft_join_and_free_s1(char *s1, char *s2)
-{
-	char	*temp;
-
-	if (!s1 || !s2)
-		return (0);
-	temp = ft_strjoin(s1, s2);
-	osgc_free(s1);
-	return (temp);
-}
-
-static int	_strcmp(char const *s1, char const *s2)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s1[i] == s2[i] && s1[i] != '\0' && s2[i] != '\0')
-		i++;
-	return (s1[i] - s2[i]);
-}
 
 static t_instruction_fn	*resolve_function_from_input(char const *input)
 {
@@ -72,8 +50,7 @@ void	checker_get_stdin(void)
 	checker = checker_instance();
 	if (!checker)
 		return ;
-	int fd = open("/tmp/test.txt", O_RDONLY);
-	read_size = read(fd, buf, 64);
+	read_size = read(0, buf, 64);
 	input = osgc_calloc(1, 1);
 	if (!input)
 		return ;
@@ -82,7 +59,7 @@ void	checker_get_stdin(void)
 		if (!input)
 			return ;
 		input = ft_join_and_free_s1(input, buf);
-		read_size = read(fd, buf, 64);
+		read_size = read(0, buf, 64);
 	}
 	instructions = ft_split(input, '\n');
 	while (*instructions)
