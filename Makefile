@@ -93,7 +93,8 @@ BONUS_MAIN_SRC=bonus.c
 BONUS_STACK_SRC_FILES=stack_reserve.c \
 	stack_init.c \
 	stack_is_sorted.c \
-	stack_print.c
+	stack_print.c \
+	stack_min.c
 
 BONUS_CORE_SRC_FILES=core_init.c \
 	core_instance.c

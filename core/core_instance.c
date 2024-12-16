@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:01:15 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 13:22:06 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 12:20:01 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_core	*core_instance(void)
 		inst->b_empty = 1;
 		inst->op_count = 0;
 		inst->check_mode = false;
+		inst->argc = 0;
 	}
 	return (inst);
 }

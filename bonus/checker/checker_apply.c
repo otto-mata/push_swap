@@ -6,100 +6,65 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:07:00 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 21:18:42 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 12:53:53 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../bonus.h"
 
-static void	ft_putnbr(int n)
+static void	col1(int value, bool special)
 {
-	char	c;
+	int	padding;
 
-	if (n == -2147483648)
-	{
-		ft_putstr("-2147483648");
-		return ;
-	}
-	if (n < 0)
-	{
-		n *= -1;
-		ft_putchar('-');
-	}
-	if (n < 10)
-	{
-		c = n + '0';
-		ft_putchar(c);
-	}
-	else
-	{
-		ft_putnbr(n / 10);
-		ft_putnbr(n % 10);
-	}
-}
-
-static int	nblen(int32_t n)
-{
-	int	sz;
-
-	sz = 0;
-	if (n <= 0)
-		sz++;
-	while (n)
-	{
-		sz++;
-		n /= 10;
-	}
-	return (sz);
-}
-
-static int	column(t_stack *stack, int index, char id)
-{
-	int	nb_sz;
-	int	nb;
-	int	i;
-
-	nb = stack->content[index];
-	if (id == 'b' && index >= stack->len)
-		nb = 0;
-	nb_sz = nblen(nb);
-	if ((nb == stack->bottom_value && id == 'a') || (nb == 0 && id == 'b'
-			&& index < stack->len))
+	if (special)
 		ft_putstr("|     * ");
 	else
 		ft_putstr("|       ");
-	ft_putnbr(nb);
-	i = 0xb - nb_sz;
-	while (i)
+	ft_putnbr(value);
+	padding = 11 - nblen(value);
+	while (padding--)
+		ft_putchar(' ');
+}
+
+static void	column(t_stack *a, t_stack *b)
+{
+	int	offset_a;
+	int	offset_b;
+	int	i;
+
+	offset_a = a->sz - a->len;
+	offset_b = b->sz - b->len;
+	i = 0;
+	while (i < a->sz)
 	{
-		ft_putchar(0x20);
-		i--;
-	}
-	if (id == 'b')
+		if (i < offset_a)
+			ft_putstr("|       0          ");
+		else
+			col1(a->content[i - offset_a], a->content[i
+				- offset_a] == a->bottom_value);
+		if (i < offset_b)
+			ft_putstr("|       0          ");
+		else
+			col1(b->content[i - offset_b], b->content[i
+				- offset_b] == stack_min(a));
 		ft_putendl("|");
-	return (index);
+		i++;
+	}
 }
 
 static void	visual(void)
 {
 	t_core	*core;
-	int		i;
 
 	core = core_instance();
 	if (!core)
 		return ;
-	i = 0;
 	ft_putendl(" __________________ __________________ ");
 	ft_putendl("|                  |                  |");
 	ft_putendl("|       a          |       b          |");
 	ft_putendl("|__________________|__________________|");
 	ft_putendl("|                  |                  |");
-	while (i < core->argc)
-	{
-		column(core->a, i, 'a');
-		column(core->b, i, 'b');
-		i++;
-	}
+	column(core->a, core->b);
 	ft_putendl("|__________________|__________________|\n");
 }
 

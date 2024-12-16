@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:02:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 21:11:54 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 12:20:21 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	core_init(void)
 	core->b = stack_reserve(args->count);
 	core->ref = 0;
 	core->a_sorted = stack_is_sorted(core->a);
-	core->argc = core->a->sz;
+	core->argc = args->count;
 	return (1);
 }

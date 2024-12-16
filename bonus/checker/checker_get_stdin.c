@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:29:21 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 19:41:35 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 12:22:25 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,9 @@ void	checker_get_stdin(void)
 	checker = checker_instance();
 	if (!checker)
 		return ;
+	otto_bzero(buf, 65);
 	read_size = read(0, buf, 64);
-	input = osgc_calloc(1, 1);
+	input = osgc_calloc(2, 1);
 	if (!input)
 		return ;
 	while (read_size > 0)
