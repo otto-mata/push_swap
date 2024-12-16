@@ -6,13 +6,13 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:29:21 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 12:22:25 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:50:03 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../bonus.h"
 
-static t_instruction_fn	*resolve_function_from_input(char const *input)
+static t_instruction_fn	*addr_of(char const *input)
 {
 	if (_strcmp("ra", input) == 0)
 		return (&ra);
@@ -63,8 +63,6 @@ void	checker_get_stdin(void)
 		read_size = read(0, buf, 64);
 	}
 	instructions = ft_split(input, '\n');
-	while (*instructions)
-		checker_register_instruction(
-			resolve_function_from_input(*instructions++)
-			);
+	while (instructions && *instructions)
+		checker_register_instruction(addr_of(*instructions++));
 }

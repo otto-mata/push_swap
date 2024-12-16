@@ -171,10 +171,12 @@ clean:
 	rm -f $(BONUS_GNL_OBJ)
 	rm -f $(BONUS_CORE_OBJ)
 	rm -f $(BONUS_CORE_ADDONS_OBJ)
+	rm -f $(BONUS_MAIN_OBJ)
 	make clean -C $(LIB_PATH)
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUS_NAME)
 
 re: fclean all
 

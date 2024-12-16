@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:38:03 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 12:54:18 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:53:41 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ struct						s_checker
 t_checker					*checker_instance(void);
 void						checker_get_stdin(void);
 int							checker_register_instruction(t_instruction_fn *fn);
-void						checker_apply(void);
+bool						checker_apply(void);
 
 char						*ft_join_and_free_s1(char *s1, char *s2);
 int							_strcmp(char const *s1, char const *s2);

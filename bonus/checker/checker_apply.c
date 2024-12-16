@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:07:00 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 12:53:53 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 13:54:35 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static void	visual(void)
 	ft_putendl("|__________________|__________________|\n");
 }
 
-void	checker_apply(void)
+bool	checker_apply(void)
 {
 	t_checker	*checker;
 	t_core		*core;
@@ -77,7 +77,7 @@ void	checker_apply(void)
 	checker = checker_instance();
 	core = core_instance();
 	if (!checker || !core)
-		return ;
+		return (false);
 	i = 0;
 	if (core->debug_mode)
 		visual();
@@ -87,4 +87,5 @@ void	checker_apply(void)
 		if (core->debug_mode)
 			visual();
 	}
+	return (stack_is_sorted(core->a) && core->b->len == 0);
 }
