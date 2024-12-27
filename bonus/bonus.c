@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:18:22 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 13:54:26 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:14:03 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(int argc, char const *argv[])
 	}
 	core_init();
 	args_destroy();
-	core_enable_check_mode();
+	// core_enable_check_mode();
 	checker_get_stdin();
 	if (checker_apply())
 		ft_putendl("OK");

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:07:00 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 13:54:35 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:20:28 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	column(t_stack *a, t_stack *b)
 			ft_putstr("|       0          ");
 		else
 			col1(b->content[i - offset_b], b->content[i
-				- offset_b] == stack_min(a));
+				- offset_b] == a->min);
 		ft_putendl("|");
 		i++;
 	}
@@ -81,6 +81,7 @@ bool	checker_apply(void)
 	i = 0;
 	if (core->debug_mode)
 		visual();
+	printf("ops: %zd\n", checker->instruction_count);
 	while (checker->instructions && checker->instructions[i])
 	{
 		checker->instructions[i++]();

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 14:31:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 14:35:22 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 15:19:06 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ int	checker_register_instruction(t_instruction_fn *fn)
 		return (0);
 	checker->instructions[i] = fn;
 	checker->instructions[i + 1] = 0;
+	checker->instruction_count++;
 	return (1);
 }

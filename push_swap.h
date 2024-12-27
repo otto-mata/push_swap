@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 20:50:46 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 21:10:53 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:07:03 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ struct					s_stack
 	int					q1;
 	int					q3;
 	int					bottom_value;
+	int					min;
 };
 
 struct					s_core

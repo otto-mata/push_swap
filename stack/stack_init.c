@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 07:48:47 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/14 20:12:01 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/16 14:07:42 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ t_stack	*stack_init(int sz, int *args)
 	}
 	stack->bottom_value = stack->content[i - 1];
 	stack->len = i;
+	stack->min = stack_min(stack);
 	return (stack);
 }
