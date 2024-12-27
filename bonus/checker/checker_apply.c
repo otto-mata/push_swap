@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:07:00 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 15:20:28 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/27 21:16:38 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ bool	checker_apply(void)
 	i = 0;
 	if (core->debug_mode)
 		visual();
-	printf("ops: %zd\n", checker->instruction_count);
 	while (checker->instructions && checker->instructions[i])
 	{
 		checker->instructions[i++]();

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 13:29:21 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 13:50:03 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/27 21:13:31 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static t_instruction_fn	*addr_of(char const *input)
 	return (0);
 }
 
-void	checker_get_stdin(void)
+bool	checker_get_stdin(void)
 {
 	t_checker	*checker;
 	char		*input;
@@ -49,20 +49,20 @@ void	checker_get_stdin(void)
 
 	checker = checker_instance();
 	if (!checker)
-		return ;
+		return (false);
 	otto_bzero(buf, 65);
 	read_size = read(0, buf, 64);
 	input = osgc_calloc(2, 1);
-	if (!input)
-		return ;
 	while (read_size > 0)
 	{
 		if (!input)
-			return ;
+			return (false);
 		input = ft_join_and_free_s1(input, buf);
 		read_size = read(0, buf, 64);
 	}
 	instructions = ft_split(input, '\n');
 	while (instructions && *instructions)
-		checker_register_instruction(addr_of(*instructions++));
+		if (!checker_register_instruction(addr_of(*instructions++)))
+			return (false);
+	return (true);
 }

@@ -6,7 +6,7 @@ PROC_N = 500
 SIZE_ARGS = 500
 
 def gen_input(n: int, low: int = None, high: int = None) -> list[str]:
-	low = -2000 if low is None else low
+	low = 0 if low is None else low
 	high = 2000 if high is None else high
 	try:
 		sample = random.sample(range(low, high), n)
