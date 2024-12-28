@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 08:10:31 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/04 13:26:57 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:56:32 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	stack_is_sorted(t_stack *stack)
 	ascending = 1;
 	descending = 1;
 	i = 1;
+	if (!stack)
+		return (0);
 	while (i < stack->len)
 	{
 		if (stack->content[i] < stack->content[i - 1])

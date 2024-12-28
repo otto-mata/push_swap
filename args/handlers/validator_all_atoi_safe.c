@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:46:07 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:10:45 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:54:14 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	validator_all_atoi_safe(void)
 	char			*arg;
 
 	i = 0;
-	if (!inst)
+	if (!inst || !inst->args)
 		return ;
 	while (inst->args[i] && !inst->error)
 	{

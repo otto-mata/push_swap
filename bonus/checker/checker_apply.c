@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:07:00 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/27 21:16:38 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 09:04:27 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ bool	checker_apply(void)
 
 	checker = checker_instance();
 	core = core_instance();
-	if (!checker || !core)
+	if (!checker || !checker->instructions || !core || !core->a || !core->b)
 		return (false);
 	i = 0;
 	if (core->debug_mode)

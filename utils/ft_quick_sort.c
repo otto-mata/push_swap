@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:26:37 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:09:28 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:58:22 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ static int	ft_partition(int array[], int low, int high)
 	int	i;
 	int	j;
 
+	if (!array)
+		return (-1);
 	pivot = array[high];
 	i = (low - 1);
 	j = low;

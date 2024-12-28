@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:23:21 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:10:45 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:54:56 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	transformer_atoi(void)
 	t_args *const	inst = args_instance();
 	int				i;
 
-	if (!inst)
+	if (!inst || !inst->args)
 		return ;
 	i = 0;
 	while (inst->args[i])

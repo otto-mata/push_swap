@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 19:00:40 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/10 13:41:28 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:58:46 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	stack_sort(void)
 	t_core	*core;
 
 	core = core_instance();
-	if (!core)
+	if (!core || !core->ref || !core->a)
 		return ;
 	if (core->ref->len == 2)
 	{

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 11:01:51 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:09:28 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 09:06:16 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static size_t	ft_count_words(char *str, char c)
 
 	words_found = 0;
 	i = 0;
-	while (str[i])
+	while (str && str[i])
 	{
 		if (c != str[i] && (i == 0 || c == str[i - 1]))
 			words_found++;
@@ -74,7 +74,7 @@ char	**ft_split(char const *s, char c)
 	size_t const	word_count = ft_count_words((char *)s, c) + 1;
 
 	str_array = osgc_malloc(word_count * sizeof(char *));
-	if (!str_array)
+	if (!str_array || !s)
 		return (0);
 	src_len = ft_strlen(s);
 	i = -1;

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 10:42:05 by tblochet          #+#    #+#             */
-/*   Updated: 2024/11/28 19:08:57 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:59:00 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	args_validate(void)
 	int				i;
 
 	i = 0;
-	if (!inst)
+	if (!inst || !inst->validators)
 		return (0);
 	while (inst->validators[i] && !inst->error)
 	{

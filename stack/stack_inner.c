@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 15:01:31 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/04 13:26:44 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:56:46 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ bool	stack_inner(t_stack *stack)
 	t_core	*core;
 
 	core = core_instance();
-	if (!core)
+	if (!core || !stack)
 		return (false);
 	i = 0;
 	while (i < stack->len)

@@ -6,7 +6,7 @@
 /*   By: tblochet <tblochet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 07:48:47 by tblochet          #+#    #+#             */
-/*   Updated: 2024/12/16 14:07:42 by tblochet         ###   ########.fr       */
+/*   Updated: 2024/12/28 08:57:41 by tblochet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_stack	*stack_init(int sz, int *args)
 	int		i;
 
 	stack = stack_reserve(sz);
-	if (!stack)
+	if (!stack || !args || !stack->content)
 		return (0);
 	i = 0;
 	while (i < sz)
